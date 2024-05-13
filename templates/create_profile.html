@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block main %}
+<h1 style ="font-size: 170%; font-family: 'Franklin Gothic Medium', 'Arial Narrow'; color: salmon;" >
+    Next create your dating profile</h1>
+    
+        <form action="" method="POST" novalidate style="font-size: 19px;">
+            {{ form.hidden_tag() }}
+            <p>{{ form.name.label }} <br> {{ form.name(size=30) }}</p>
+            <label for="preference">(Which sex you are attracted to)</label>
+            <select name="preference" id="preference">
+                <option value="Male">Males</option>
+                <option value="Female">Females</option>
+                <option value="Both">Both (Females & Males)</option>
+            </select>
+            <p>{{ form.bio.label }} <br> {{ form.bio(size=20) }}</p>
+            <p>{{ form.occupation.label }} <br> {{ form.occupation(size=6) }}</p>
+            <label for="picture.label">Select your best selfie as your profile picture: </label>
+            <select name="picture" id="picture">
+                <option value="profile1.jpg">Selfie 1</option>
+                <option value="profile2.jpg">Selfie 2</option>
+                <option value="profile3.jpg">Selfie 3</option>
+                <option value="profile4.jpg">Selfie 4</option>
+                <option value="profile5.jpg">Selfie 5</option>
+            </select>
+            <p>{{ form.age.label }} <br> {{ form.age(size=6) }}</p>
+            <label for="sex">Select your gender:</label>
+            <select name="sex" id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+
+
+            <p>{{ form.submit(class="button2") }}</p>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flashes">
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}

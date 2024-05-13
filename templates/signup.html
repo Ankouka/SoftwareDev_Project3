@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block main %}
+        <form action="" method="POST" novalidate style="font-size: 19px;">
+            {{ form.hidden_tag() }}
+            <p>{{ form.id.label }} <br> {{ form.id(size=15) }}</p>
+            <p>{{ form.full_name.label }} <br> {{ form.full_name(size=30) }}</p>
+            <p>{{ form.email_address.label }} <br> {{ form.email_address(size=30) }}</p>
+            <p>{{ form.passwd.label }} <br> {{ form.passwd(size=30) }}</p>
+            <p>{{ form.passwd_confirm.label }} <br> {{ form.passwd_confirm(size=30) }}</p>
+            <p>{{ form.submit(class="button2") }}</p>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flashes">
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}

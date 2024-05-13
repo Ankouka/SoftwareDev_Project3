@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulmates</title>
+    <script src = "https://code.jquery.com/jsquery-3.5.1.js">
+    </script>
+    <style>
+        
+        body {
+            display:grid;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .content-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 170%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+            color: crimson;
+            margin-bottom: 20px;
+            text-align: center; /* Vertical text */
+            width: 100%; /* Add this line to make the title centered */
+        }
+
+        .profile-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 19px rgba(0, 0, 0, 0.1);
+            max-width: 420px;
+            width: 160%;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            max-width: 78%;
+            height: 340px;
+            border-radius: 78%;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            margin-top: auto; /* Push the container to the top to center the button */
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+            align-items: flex-end; /* Align the button to the bottom */
+            height: 100%;
+        }
+
+        .homepage-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: blue; /* Green color for the checkmark button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: green; /* Green color for the checkmark button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: red; /* Red color for the X button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+}
+        .profile-info {
+            font-family: 'STIX Two Text';
+            color: rebeccapurple;
+            font-size: 22px; /* Adjust the font size */
+            line-height: 1.5; /* Adjust the line height for spacing */
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            font-size: 24px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+            color: darkslategray;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="button3" onclick="simple_action('{{ url_for('user_profile') }}')">
+        <span>Go back to your profile</span>
+    </button>&nbsp;&nbsp;
+    
+    <p style="color: slateblue">If you are interested in the person you are seeing, click the checkmark button</p>
+    <div class="profile-container">
+        <div class="profile-info">
+            {% for soulmate in soulmates %}
+                <form action="{{ url_for('user_profile') }}" method="post">
+                    <img class="profile-image" src="/static/profile_images/{{ soulmate.pic }}" alt="Soulmate Image" width="750px" height="775px">
+                    <h2>{{ soulmate.name }}</h2>
+                    <p>{{ soulmate.age }}</p>
+                    <p>{{ soulmate.bio }}</p>
+                    <input type="hidden" name="id" value="{{ soulmate.id }}">
+                    <input type="hidden" name="name" value="{{ soulmate.name }}">
+                    <input type="hidden" name="age" value="{{ soulmate.age }}">
+                    <input type="hidden" name="gender" value="{{ soulmate.gender }}">
+                    <input type="hidden" name="bio" value="{{ soulmate.bio }}">
+                    <input type="hidden" name="pic" value="{{ soulmate.pic }}">
+                    <center><button type="button" class="add-button" onclick="simple_action('{{ url_for('add_soulmate', id=soulmate.id) }}')">✔</button>&nbsp;&nbsp;</center>
+                    <p></p>
+                </form>
+                <!-- <button type="button" class="delete-button" onclick="removeSoulmate(this)">X</button>&nbsp;&nbsp; -->
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="button-container" >
+        <button type="button" class="button3" onclick="simple_action('{{ url_for('user_profile') }}')">
+            <span>Go back to your profile</span>
+        </button>&nbsp;&nbsp;
+    </div>
+
+    <script type="text/javascript">
+    function simple_action(target) {
+        window.location = target;
+    }
+
+    function confirmed_action(target) {
+        if (confirm('Are you sure?')) {
+            window.location = target;
+        }
+    }
+    </script>
+
+</body>
+{% endblock %}

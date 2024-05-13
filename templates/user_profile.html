@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block main %}
+
+    <h1 style ="font-size: 170%; font-family: 'Franklin Gothic Medium', 'Arial Narrow'; color: mediumvioletred;" >
+    Welcome, {{user_profile.name}}, to PLOWYY, your one stop shop for love.</h1>
+   
+    <p style ="font-size: 149%;">{{ user_profile.name }}'s Profile.</p>
+    
+    <div style="margin-bottom: 49px;">
+        <table style ="font-size: 159%;">
+            <tr>
+                <th>Name</th>
+                <th>Preference</th>
+                <th>Occupation</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>About</th>
+                <th>Profile Picture</th>
+            </tr>
+            <tr>
+                <td>{{user_profile.name}}</td>
+                <td>{{user_profile.preference}}</td>
+                <td>{{user_profile.occupation}}</td>
+                <td>{{user_profile.age}}</td>
+                <td>{{user_profile.sex}}</td>
+                <td>{{user_profile.bio}}</td>
+                <td><img src="/static/profile_images/{{user_profile.picture}}"   width="250px" height="275px"/></td>
+            </tr>
+        </table>
+    </div>
+
+    
+<button type="button" class="button3" onclick="simple_action('{{ url_for('users_signout') }}')">
+    <span>Sign Out</span>
+</button>&nbsp;&nbsp;
+
+<button type="button" class="button3" onclick="simple_action('{{ url_for('potential_partners') }}')">
+    <span>Search For Your Partner</span>
+</button>&nbsp;&nbsp;
+
+<button type="button" class="button3" onclick="simple_action('{{ url_for('edit_profile') }}')">
+    <span>Edit Your Profile</span>
+</button>&nbsp;&nbsp;
+
+<button type="button" class="button3" onclick="simple_action('{{ url_for('view_matches') }}')">
+    <span>Matches</span>
+</button>&nbsp;&nbsp;
+
+
+
+
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target;
+    }
+
+    function confirmed_action(target) {
+        if (confirm('Are you sure?')) {
+            window.location = target;
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function removeSoulmate2(buttonElement) {
+        var profileContainer = buttonElement.closest('tr');
+        var index = profileContainer.getAttribute('data-index');
+
+        
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/remove_soulmate", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    
+        var data = {
+            'index': index
+        };
+    
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                
+                if (xhr.status === 200) {
+                    
+                    // On success, remove the row from the table without refreshing the page
+                    profileContainer.remove();
+                } else {
+                    // Handle error
+                    console.error("Error removing soulmate:", xhr.responseText);
+                }
+            }
+        };
+    
+        xhr.send(JSON.stringify(data));
+    }
+    </script>
+{% endblock %}

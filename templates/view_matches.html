@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<h1 style ="font-size: 170%; font-family: 'Franklin Gothic Medium', 'Arial Narrow'; color: mediumvioletred;" >
+Your Matches</h1>
+
+<div style="margin-bottom: 49px;">
+    <table style="font-size: 159%;">
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>About Me</th>
+            <th>Chat</th>
+        </tr>
+
+        {% for match in matches %}
+            <tr>
+                <td><img src="/static/profile_images/{{match.pic}}" alt="{{ match.name }}" style="width: 250px; height: 250px;"></td>
+                <td>{{ match.name }}</td>
+                <td>{{ match.bio }}</td>
+                <td><button type="button" style = "background-color: #FF1744;" class="button3"  onclick="simple_action('{{ url_for('chat', recipient=match.id) }}')">Chat</button>&nbsp;&nbsp;</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<button type="button" class="button3" onclick="simple_action('{{ url_for('user_profile') }}')">
+    <span>Back to your profile</span>
+</button>&nbsp;&nbsp;
+
+<script type="text/javascript">
+    function simple_action(target) {
+        window.location = target;
+    }
+
+    function confirmed_action(target) {
+        if (confirm('Are you sure?')) {
+            window.location = target;
+        }
+    }
+</script>
+
+{% endblock %}
