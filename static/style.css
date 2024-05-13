@@ -1,0 +1,105 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+  }
+  
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid;
+    padding: 5px;
+    color: #000000
+  }
+  
+  th {
+    background-color: rebeccapurple;
+    color: orangered
+  }
+  
+  input[type=submit] {
+    background-color: darkblue;
+    color: white;
+  }
+  .expand{
+    width: 200px;
+  }
+  
+  
+  .odd_row {
+    background-color: white;
+  }
+  
+  .even_row {
+    background-color: lightgray;
+  }
+  
+  .button {
+    background-color: darkblue;
+    color: white;
+  }
+
+  .button2 {
+    font-size: 16px;
+            padding: 5px 10px;
+            background-color: blue; /* Green color for the checkmark button */
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+  }
+
+
+  .sender {
+    text-align: right;
+    background-color: #22ace5;
+  }
+
+  .recipient {
+    text-align: left;
+    background-color: lightgray;
+  }
+
+  .button3 {
+    font-size: 16px;
+    display:inline-box;
+    background-color: #651FFF    ;
+    border-radius: 12px;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 1px 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  button  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 5;
+    top: 0;
+    right: -20px;
+    transition: 1ms;
+  }
+  button:hover {
+    background-color: #FF1744
+;
+  }
+  button:hover span {
+    padding-right: 25px;
+  }
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

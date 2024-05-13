@@ -1,0 +1,85 @@
+header {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: darkgray;
+    color: white;
+    text-align: center;
+    font-size: 120%;
+  font-weight: 72;
+}
+
+/* Resetting some default margin/padding for elements */
+body{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Adjust font-family as needed */
+  background-color: #f5f5f5; /* Adjust background color */
+}
+
+header {
+  margin-bottom: 10px;
+  padding: 2px;
+  background-color: darkgray;
+  color: white;
+  text-align: center;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.oneArea {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: 50px auto;
+  padding: 0 10px;
+}
+
+.onebox {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.message_area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text content to the start */
+}
+
+.receive_bubble {
+  max-width: 70%; /* Adjust width if needed */
+  padding: 15px;
+  background-color: lightgray;
+  font-size: 16px;
+  color: black;
+  border-radius: 12px;
+  box-sizing: border-box;
+  margin-right: 90px; /* Margin to accommodate the image width */
+  margin-bottom: 5px; /* Adjust the bottom margin as needed */
+}
+
+.send_bubble {
+  max-width: 70%; /* Adjust width if needed */
+  padding: 15px;
+  background-color: #1387c9;
+  font-size: 16px;
+  color: white;
+  border-radius: 12px;
+  box-sizing: border-box;
+  align-self: flex-end;
+}
+
+.imgArea {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.imgArea img {
+  width: 80px; /* Adjust the width of the image as needed */
+  height: 80px; /* Adjust the height of the image as needed */
+  border-radius: 50%; /* To make the image round */
+}
