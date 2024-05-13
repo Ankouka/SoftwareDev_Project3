@@ -28,10 +28,11 @@ As a user, I want to engage in conversations with 100% real (totally real) celeb
 # Development Process
 This section should be used to describe how the scrum methodology was used in this project. As a suggestion, include the following table to summarize how the sprints occurred during the development of this project.
 
-Sprint#	Goals	Start	End	Done	Observations
-1	US#1, US#2	11/09/23	11/16/23	US#1 and US#2	Time was our biggest concern during this sprint
-2	US#3, US#4	11/16/23	11/30/23	US#3 and US#4	Time was less of a concern but now its Error that became the new concern
-3	US#5, US#6	11/30/23	12/7/23	US#5 and US#6	Error and testing was a concern
+|Sprint#|Goals|Start|End|Done|Observations|
+|---|---|---|---|---|---|
+|1|US#1, US#2|11/09/23|11/16/23|US#1 and US#2|Time was our biggest concern during this sprint|
+|2|US#3, US#4|11/16/23|11/30/23|US#3 and US#4|Time was less of a concern but now its Error that became the new concern|
+|3|US#5, US#6|11/30/23|12/7/23|US#5 and US#6|Error and testing was a concern|
 
 # Testing 
 | Name                  | Stmts | Miss | Cover |
