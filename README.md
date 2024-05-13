@@ -4,25 +4,25 @@ This is the third software project I worked on with my team in our Software Devl
 We created a dating website where a user can make a account and dating profile. They then can start looking for their partner and chat with them so they can get to know them. 
 # User Stories
 
-US#1
+# US#1
 As an unregistered user, I aim to sign up to create my account and share information about myself, with the goal of finding a perfect match. Once I complete all the necessary fields and information required for my profile, my account will be saved. This will enable me to log in using the 'Sign In' button whenever I want to access my account.
 
-US#2
+# US#2
 As a user logging into my account, Once authenticated, I land on the homepage featuring profiles presented for potential matches with a checkmark and an X. There should be navigational buttons for editing profile, and viewing chats.
 
-US#3
+# US#3
 As a user, I want to easily modify and update my profile information. Upon accessing the homepage, I click the 'Edit Profile' button, enabling me to adjust details like bio, photos, preferences, or any relevant information. After making changes, I confirm the updates and they are saved.
 
-US#4
+# US#4
 As a user seeking potential matches viewing available profiles, I encounter profiles aligning with my gender preference. There are buttons with a checkmark and an X. If I like someone, I click the checkmark, and if I don't, I click the X. This helps me pick the people I want to match with or not match with.
 
-US#5
+# US#5
 As a user who has found matches on the homepage, I check the 'Matches' section to see people who also liked me. Once there, I choose someone from the list by clicking on their profile. This action opens a chat window, allowing me to start a conversation with that person. This way, I can easily connect with someone I matched with and start getting to know them better through chatting.
 
-US#6
+# US#6
 As a tester responsible for the user authentication module of our web application, I want to ensure its robustness, security, and seamless functionality to provide a positive user experience. This involves both white-box and black-box testing methodologies.
 
-US#7 (optional)
+# US#7 (optional)
 As a user, I want to engage in conversations with 100% real (totally real) celebrity profiles, which are certainly NOT AI chatbots like ChatGPT. When I visit the platform's chat section, I select a profile and a TOTALLY REAL celebrity responds to my messages instantly (because I’m that important).
 
 # Development Process
