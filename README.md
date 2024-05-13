@@ -2,6 +2,157 @@ This is the third software project I worked on with my team in our Software Devl
 
 # Description
 We created a dating website where a user can make a account and dating profile. They then can start looking for their partner and chat with them so they can get to know them. 
+
+# Design
+## Class Diagram
+```
+@startuml
+!theme crt-green
+class User{ 
+    -email: String
+    -id: String
+    -password: String
+    +name: String
+    +preference: String
+    +bio: String
+    +occupation: String
+    +picture: File
+    +age: Integer
+    +sex: String
+    +Sign In()
+    +Sign Out()
+    +Sign Up()
+
+}
+
+class User_Profile { 
+    +name: String
+    +preference: String
+    +bio: String
+    +occupation: String
+    +picture: File
+    +age: Integer
+    +sex: String
+    +Sign In()
+    +Sign Out()
+    +Sign Up()
+    +EditProfile()
+    +SaveSoulmate()
+    +AddSoulmate()
+    +RemoveSoulmate()
+    +TalkToSoulmate()
+    +LikeSoulmate()
+    +DisikeSoulmate()
+}
+
+User <|-- User_Profile: Inheritance
+
+
+class Soulmate_Profile{
+    +name: String
+    +age: Integer
+    +sex: String
+    +about: String
+    +profile picture: File
+}
+
+note "Soulmate's profile information" as N1
+note "User Types" as N2
+N1 .. Soulmate_Profile
+N2 .. User
+N2 .. User_Profile
+@endum
+@enduml
+```
+![Class Diagram](images/ClassDiagram.png)
+## sequence diagram
+```
+@startuml Website scenario 1
+skin rose
+
+participant User
+entity "Web Server"
+database Database
+
+User --> "Web Server": Creates user account
+"Web Server" -> Database: update "another user account has been made"
+Database -> "Web Server": response: user account successfully saved
+"Web Server" --> User: redirects sign page to create profile page
+
+User --> "Web Server": Creates user profile 
+"Web Server" -> Database: update "another user profile has been made"
+Database -> "Web Server": response: user account successfully saved
+"Web Server" --> User: redirects create profile page to login page
+
+User --> "Web Server": Sends login information 
+"Web Server" -> Database: query "Is the user's id and password authenticated?"
+Database -> "Web Server": response: true or false 
+
+
+alt "Successful authentication"
+
+  "Web Server" --> User: redirects login page to user's homepage
+  User --> "Web Server": clicks the 'search for your partner' button
+  "Web Server" -> Database: request: "is the user authorized to visit this site?"
+  Database -> "Web Server" : response: yes
+ "Web Server" --> User: redirects user's homepage to soulmates page
+
+  User --> "Web Server": clicks the 'edit profile' button
+  "Web Server" -> Database: request: "is the user authorized to visit this site?"
+  Database -> "Web Server" : response: yes
+ "Web Server" --> User: redirects user's homepage to edit profile page
+
+User --> "Web Server": clicks the 'edit profile' button
+  "Web Server" -> Database: request: "can the user sign out"
+  Database -> "Web Server" : response: yes
+ "Web Server" --> User: redirects user's homepage to login page
+
+else "Failed authentication"
+    "Web Server" --> User: authentication failure message
+end
+@enduml
+```
+![Sequence Diagram](images/SequenceDiagram.png)
+## use case diagram
+```
+@startuml
+
+:User:
+:For Real Celebrity 100%:
+
+left to right direction
+
+package system {
+(Login Database)
+(Profile Database)
+(Chat Database)
+package website {
+(Sign-In)
+(Sign-Up)
+(Create Profile)
+(View Profiles)
+(View Matches)
+(Chat With Matches)
+}
+}
+
+:User: --> (Sign-Up) :create account
+:User: --> (Sign-In) :login
+:User: --> (Create Profile) :edit profile
+:User: --> (View Profiles) :swipey
+(Sign-Up) --> (Create Profile) :add details
+(Sign-Up) --> (Login Database) :add account
+(Sign-In) --> (Login Database) :access account
+(Create Profile) --> (Profile Database) :add profile
+(View Profiles) --> (Profile Database) :iterate through profiles
+(View Profiles) --> (View Matches)
+(View Matches) --> (Chat With Matches)
+(Chat With Matches) --> (Chat Database) :access chat history
+:For Real Celebrity 100%: --> (Chat With Matches) :chat gpt
+@enduml
+```
+![Use Case](images/UseCaseDiagram.png)
+
 # User Stories
 
 # US#1
